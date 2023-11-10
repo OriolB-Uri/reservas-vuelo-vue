@@ -19,14 +19,14 @@
 <body>
     <main class="container" id="app">
         <h1>Reserva de vuelos</h1>
-        <article>
-            <p>Número del vuelo: QF123</p>
-            <p>Categoría: <span>Economy</span></p>
-            <p>Puerta de embarque: G3</p>
-            <p>Email de la reserva: bob.johnson@gmail.com </p>
+        <article v-for="flight in flightReservations" >
+            <p>Número del vuelo: {{flight.flightNumber}}</p>
+            <p>Categoría: <span :class="{'first-class': flight.ticketClass == 'First Class'}">{{flight.ticketClass}}</span></p>
+            <p>Puerta de embarque: {{flight.gate}}</p>
+            <p>Email de la reserva: {{flight.passenger.contactInfo.email}} </p>
 
-            <p>Vuelo cancelado ❌</p>
-            <p>Vuelo confirmado 👌</p>
+            <p v-if="flight.isCancelled">Vuelo cancelado ❌</p>
+            <p v-if="flight.isConfirmed">Vuelo confirmado 👌</p>
         </article>
 
     </main>

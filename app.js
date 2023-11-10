@@ -296,12 +296,14 @@ createApp({
         totalPrice: "$550.00",
         paymentMethod: "Credit Card",
         bookingReference: "MNO123",
-        isConfirmed: true,
+        isConfirmed: false,
         isCancelled: true,
         flightStatus: "On time",
         gate: "G3",
       },
     ]);
+
+    
 
     return {
       flightReservations,
